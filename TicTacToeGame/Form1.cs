@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,128 +39,137 @@ namespace TicTacToeGame
         List<string> Player1 = new List<string>();
         List<string> Player2 = new List<string>();
         bool IsFinish = false;
+        short Counter = 1;
 
         private bool CheckIsEmptyOrNot(string P)
         {
             return Player1.Contains(P) || Player2.Contains(P);
         }
-
-        public bool CheckPlayer1Winner()
+        bool CheckPlayer1(List<string> Player, PictureBox P1, PictureBox P2, PictureBox P3)
         {
-            bool case1 = Player1.Contains("P11") && Player1.Contains("P12") && Player1.Contains("P13");
-            bool case2 = Player1.Contains("P21") && Player1.Contains("P22") && Player1.Contains("P23");
-            bool case3 = Player1.Contains("P31") && Player1.Contains("P32") && Player1.Contains("P33");
+            bool Case = Player.Contains(P1.Tag.ToString()) && Player.Contains(P2.Tag.ToString()) && Player.Contains(P3.Tag.ToString());
+            if (Case)
+            {
+                P1.BackColor = Color.GreenYellow;
+                P2.BackColor = Color.GreenYellow;
+                P3.BackColor = Color.GreenYellow;
+            }
+            return Case;
+        }
+        public bool CheckWinner(List<string> Player)
+        {
+            bool case1 = CheckPlayer1(Player, P11, P12, P13);
+            bool case2 = CheckPlayer1(Player, P21, P22, P23);
+            bool case3 = CheckPlayer1(Player, P31, P32, P33);
             ///////////////////////////////////////////////////////////////////////////////////////////
-            bool case4 = Player1.Contains("P11") && Player1.Contains("P21") && Player1.Contains("P31");
-            bool case5 = Player1.Contains("P12") && Player1.Contains("P22") && Player1.Contains("P32");
-            bool case6 = Player1.Contains("P13") && Player1.Contains("P23") && Player1.Contains("P33");
+            bool case4 = CheckPlayer1(Player, P11, P21, P31);
+            bool case5 = CheckPlayer1(Player, P12, P22, P32);
+            bool case6 = CheckPlayer1(Player, P13, P23, P33);
             ///////////////////////////////////////////////////////////////////////////////////////////
-            bool case7 = Player1.Contains("P11") && Player1.Contains("P22") && Player1.Contains("P33");
-            bool case8 = Player1.Contains("P13") && Player1.Contains("P22") && Player1.Contains("P31");
+            bool case7 = CheckPlayer1(Player, P11, P22, P33);
+            bool case8 = CheckPlayer1(Player, P13, P22, P31);
             return (case1 || case2 || case3 || case4 || case5 || case6 || case7 || case8);
         }
-        public bool CheckPlayer2Winner()
-        {
-            bool case1 = Player2.Contains("P11") && Player2.Contains("P12") && Player2.Contains("P13");
-            bool case2 = Player2.Contains("P21") && Player2.Contains("P22") && Player2.Contains("P23");
-            bool case3 = Player2.Contains("P31") && Player2.Contains("P32") && Player2.Contains("P33");
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            bool case4 = Player2.Contains("P11") && Player2.Contains("P21") && Player2.Contains("P31");
-            bool case5 = Player2.Contains("P12") && Player2.Contains("P22") && Player2.Contains("P32");
-            bool case6 = Player2.Contains("P13") && Player2.Contains("P23") && Player2.Contains("P33");
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            bool case7 = Player2.Contains("P11") && Player2.Contains("P22") && Player2.Contains("P33");
-            bool case8 = Player2.Contains("P13") && Player2.Contains("P22") && Player2.Contains("P31");
-            return (case1 || case2 || case3 || case4 || case5 || case6 || case7 || case8);
-        }
-        private void ChangePlayer(PictureBox P, string PTag)
+        private void ChangePlayer(PictureBox P)
         {
             if (IsFinish) return;
-            if (!CheckIsEmptyOrNot(PTag))
+            if (Counter == 9)
+            { label5.Text = "Draw"; IsFinish = true; }
+            if (!CheckIsEmptyOrNot(P.Tag.ToString()))
             {
+                Counter++;
                 if (Player == enPlayer.Player1)
                 {
                     P.Image = Resources.X;
-                    Player1.Add(PTag);
+                    Player1.Add(P.Tag.ToString());
                     label3.Text = "Player 2";
                     Player = enPlayer.Player2;
                 }
                 else
                 {
                     P.Image = Resources.O;
-                    Player2.Add(PTag);
+                    Player2.Add(P.Tag.ToString());
                     label3.Text = "Player 1";
                     Player = enPlayer.Player1;
                 }
-                if (CheckPlayer1Winner()) { label5.Text = "Player 1"; IsFinish = true; }
-                if (CheckPlayer2Winner()) { label5.Text = "Player 2"; IsFinish = true; }
+                if (CheckWinner(Player1)) { label5.Text = "Player 1"; IsFinish = true; }
+                if (CheckWinner(Player2)) { label5.Text = "Player 2"; IsFinish = true; }
             }
         }
 
         private void P11_Click(object sender, EventArgs e)
         {
-            ChangePlayer((PictureBox)sender, "P11");
+            ChangePlayer((PictureBox)sender);
         }
 
         private void P12_Click(object sender, EventArgs e)
         {
-            ChangePlayer((PictureBox)sender, "P12");
+            ChangePlayer((PictureBox)sender);
         }
 
         private void P13_Click(object sender, EventArgs e)
         {
-            ChangePlayer((PictureBox)sender, "P13");
+            ChangePlayer((PictureBox)sender);
         }
 
         private void P21_Click(object sender, EventArgs e)
         {
-            ChangePlayer((PictureBox)sender, "P21");
+            ChangePlayer((PictureBox)sender);
         }
 
         private void P22_Click(object sender, EventArgs e)
         {
-            ChangePlayer((PictureBox)sender, "P22");
+            ChangePlayer((PictureBox)sender);
         }
 
         private void P23_Click(object sender, EventArgs e)
         {
-            ChangePlayer((PictureBox)sender, "P23");
+            ChangePlayer((PictureBox)sender);
         }
 
         private void P31_Click(object sender, EventArgs e)
         {
-            ChangePlayer((PictureBox)sender, "P31");
+            ChangePlayer((PictureBox)sender);
         }
 
         private void P32_Click(object sender, EventArgs e)
         {
-            ChangePlayer((PictureBox)sender, "P32");
+            ChangePlayer((PictureBox)sender);
         }
 
         private void P33_Click(object sender, EventArgs e)
         {
-            ChangePlayer((PictureBox)sender, "P33");
+            ChangePlayer((PictureBox)sender);
+        }
+        private void ResetPictureBox(PictureBox P)
+        {
+            P.Image = Resources.question_mark_96;
+            P.BackColor = Color.Transparent;
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            Counter = 1;
             IsFinish = false;
+            Player = enPlayer.Player1;
 
             label3.Text = "Player 1";
             label5.Text = "In Progress";
-            Player = enPlayer.Player1;
+
             Player1 = new List<string>();
             Player2 = new List<string>();
-            P11.Image = Resources.question_mark_96;
-            P12.Image = Resources.question_mark_96;
-            P13.Image = Resources.question_mark_96;
 
-            P21.Image = Resources.question_mark_96;
-            P22.Image = Resources.question_mark_96;
-            P23.Image = Resources.question_mark_96;
+            ResetPictureBox(P11);
+            ResetPictureBox(P12);
+            ResetPictureBox(P13);
 
-            P31.Image = Resources.question_mark_96;
-            P32.Image = Resources.question_mark_96;
-            P33.Image = Resources.question_mark_96;
+            ResetPictureBox(P21);
+            ResetPictureBox(P22);
+            ResetPictureBox(P23);
+
+            ResetPictureBox(P31);
+            ResetPictureBox(P32);
+            ResetPictureBox(P33);
+
         }
     }
 }
