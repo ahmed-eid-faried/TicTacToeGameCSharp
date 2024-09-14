@@ -96,51 +96,11 @@ namespace TicTacToeGame
                 if (CheckWinner(Player2)) { label5.Text = "Player 2"; IsFinish = true; }
             }
         }
-
-        private void P11_Click(object sender, EventArgs e)
+        private void PictureBox_Click(object sender, EventArgs e)
         {
             ChangePlayer((PictureBox)sender);
         }
 
-        private void P12_Click(object sender, EventArgs e)
-        {
-            ChangePlayer((PictureBox)sender);
-        }
-
-        private void P13_Click(object sender, EventArgs e)
-        {
-            ChangePlayer((PictureBox)sender);
-        }
-
-        private void P21_Click(object sender, EventArgs e)
-        {
-            ChangePlayer((PictureBox)sender);
-        }
-
-        private void P22_Click(object sender, EventArgs e)
-        {
-            ChangePlayer((PictureBox)sender);
-        }
-
-        private void P23_Click(object sender, EventArgs e)
-        {
-            ChangePlayer((PictureBox)sender);
-        }
-
-        private void P31_Click(object sender, EventArgs e)
-        {
-            ChangePlayer((PictureBox)sender);
-        }
-
-        private void P32_Click(object sender, EventArgs e)
-        {
-            ChangePlayer((PictureBox)sender);
-        }
-
-        private void P33_Click(object sender, EventArgs e)
-        {
-            ChangePlayer((PictureBox)sender);
-        }
         private void ResetPictureBox(PictureBox P)
         {
             P.Image = Resources.question_mark_96;

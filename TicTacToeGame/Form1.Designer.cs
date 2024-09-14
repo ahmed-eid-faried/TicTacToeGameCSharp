@@ -144,7 +144,7 @@
             this.P11.TabIndex = 5;
             this.P11.TabStop = false;
             this.P11.Tag = "P11";
-            this.P11.Click += new System.EventHandler(this.P11_Click);
+            this.P11.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // P12
             // 
@@ -157,7 +157,7 @@
             this.P12.TabIndex = 6;
             this.P12.TabStop = false;
             this.P12.Tag = "P12";
-            this.P12.Click += new System.EventHandler(this.P12_Click);
+            this.P12.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // P13
             // 
@@ -170,7 +170,7 @@
             this.P13.TabIndex = 7;
             this.P13.TabStop = false;
             this.P13.Tag = "P13";
-            this.P13.Click += new System.EventHandler(this.P13_Click);
+            this.P13.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // P23
             // 
@@ -183,7 +183,7 @@
             this.P23.TabIndex = 10;
             this.P23.TabStop = false;
             this.P23.Tag = "P23";
-            this.P23.Click += new System.EventHandler(this.P23_Click);
+            this.P23.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // P22
             // 
@@ -196,7 +196,7 @@
             this.P22.TabIndex = 9;
             this.P22.TabStop = false;
             this.P22.Tag = "P22";
-            this.P22.Click += new System.EventHandler(this.P22_Click);
+            this.P22.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // P21
             // 
@@ -209,7 +209,7 @@
             this.P21.TabIndex = 8;
             this.P21.TabStop = false;
             this.P21.Tag = "P21";
-            this.P21.Click += new System.EventHandler(this.P21_Click);
+            this.P21.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // P33
             // 
@@ -222,7 +222,7 @@
             this.P33.TabIndex = 13;
             this.P33.TabStop = false;
             this.P33.Tag = "P33";
-            this.P33.Click += new System.EventHandler(this.P33_Click);
+            this.P33.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // P32
             // 
@@ -235,7 +235,7 @@
             this.P32.TabIndex = 12;
             this.P32.TabStop = false;
             this.P32.Tag = "P32";
-            this.P32.Click += new System.EventHandler(this.P32_Click);
+            this.P32.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // P31
             // 
@@ -248,7 +248,7 @@
             this.P31.TabIndex = 11;
             this.P31.TabStop = false;
             this.P31.Tag = "P31";
-            this.P31.Click += new System.EventHandler(this.P31_Click);
+            this.P31.Click += new System.EventHandler(this.PictureBox_Click);
             // 
             // button1
             // 
